@@ -162,4 +162,44 @@
         </section>
 
         {/* Contact */}
-        
+        <section id="contact" classNamea="py-24 px-6 bg-black">
+          <div className="max-w-4x1 mx-auto text-center">
+            <h3 className="text-4x1 font-bold mb-4">Book Your Detail Today</h3>
+
+            <p className="text-gray-400 mb-10">
+              Contact us to schedule an appointment or get a free quote.
+            </p>
+
+            <form className="grid gap-6">
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="bg-zinc-900 border border-zinc-800 rounded-2x1 p-4 outline-none focus:border-yello-400"
+              />
+
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="bg-zinc-900 border border-zinc-800 rounded-2x1 p-4 outline-none focus:border-yellow-400"
+              />
+
+              <textarea
+                rows="5"
+                placeholder="Tell us about your vehicle or service needed"
+                className="bg-zinc-900 border border-zinc-800 rounded-2x1 p-4 outline-none focus:border-yellow-400">
+              ></textarea>
+
+              <button className="bg-yellow-400 text-black py-4 rounded-2x1 font-bold hover:scale-[1.02] transition">
+                Submit Request
+              </button>
+            </form>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="border-t border-zinc-800 py-8 text-center text-gray-500 text-sm">
+          COPY 2026 Precision Auto Detailing | Professional Car Care Services
+        </footer>
+      </div>
+    );
+  }
