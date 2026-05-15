@@ -112,4 +112,54 @@
             <img
               src="https://images.unsplash.com/photo-1607861716497-e65ab29fc7ac?q=80&w1400&auto=format&fit=crop"
               alt="Detailing"
-            
+              className="rounded-3x1 shadow-2x1 object-cover h-full"
+            />
+
+            <div>
+              <h3 className="text-4x1 font-bold mb-6">
+                Why Choose <span className="text-yellow-400">Us?</span>
+              </h3>
+
+              <p className="text-gray-300 mb-6 leading-relaxed text-lg">
+                At Precision Auto Detailing, we treat every vehicle like it's our own, We use premium detailing products, advanced cleaning techniques, and attention to detail to restore your vehicle's shine.
+              </p>
+
+              <div className="space-y-4">
+                <div className="bg-zinc-900 p-4 rounded-2x1 border border-zinc-800">
+                  check; Professional-grade equipment
+                </div>
+                <div className="bg-zinc-900 p-4 rounded-2x1 border border-zinc-800">
+                  check; Affordable pricing
+                </div>
+                <div className="bg-zinc-900 p-4 rounded-2x1 border border-zinc-800">
+                  check; Mobile detailing available
+                </div>
+                <div className="bg-zinc-900 p-4 rounded-2x1 border border-zinc-800">
+                  check; Satisfaction guaranteed
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/*Reviews*/}
+        <section id="reviews" className="py-24 px-6 bg-zinc-950">
+          <div className="max-w-7x1 mx-auto text-center">
+            <h3 className="text-4x1 font-bold mb-14">Customer Reviews</h3>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {reviews.map((review, index) => (
+                <div
+                  key={index}
+                  className="bg-black p-8 rounded-3x1 border border-zinc-800 shadow-lg"
+                >
+                  <p className="text-gray-300 italic mb-6">"{review.text}"</p>
+                  <h4 className="font-bold text-yellow-400">{review.name}</h4>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Contact */}
+        
