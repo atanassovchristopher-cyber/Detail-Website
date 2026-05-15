@@ -1,205 +1,293 @@
-<Doctype html>  
-  <head>
-
-    <export default function> DetailingWebsite() {
-    <const services = [
-    {
-      title = 'Basic Detail'
-      price = $79
-      description = Exterior wash, Tire Shine, Interior Vacuum, Window Wash
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A&S Precision Auto Detailing</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
     }
-    {
-      title = 'Full Interior Detail'
-      price = '$149'
-      description = deep vacuum, carpet clense, leather breakdown, odor removal
+
+    body {
+      background: #111;
+      color: white;
     }
-    {
-      title = 'Premium Full Detail'
-      price = '$249'
-      description = 'full intertior + exterior shape up with wax protection and paint treatment'
+
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: rgba(0,0,0,0.9);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
     }
->
-      
 
-      <const reviews = [
-        {
-          name: 'Sandra P.',
-          text: 'Car looks smells and feels like I just got it from the dealer! Haven't been happier with a clean car!'
-        ];
+    nav h1 {
+      color: gold;
+      font-size: 28px;
+    }
 
-    return (
-      <div className="bg-black text-white min-h-screen font-snans">      
-        {/* Navbar*/}
-        <nav className="fixed top-0 w-full bg-black/90 backdrop-blur-md border-b border-gray-800 z-50">
-          <div className="max-w-78x1 mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 className="text-2x1 font-bold tracking-wide text-yellow-400">
-              A&S Percision Auto Detailing
-            </h1>
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
 
-            <div className="hidden md:flex gap-8 text-sm uppercase tracking-wider">
-              <a href="#home" className="hover:text-yellow-400 transition">Home</a>
-              <a href="#services" className="hover:text-yellow-400 transition">Services</a>
-              <a href="#about" className="hover:text-yellow-400 transition">About</a>
-              <a href="#reviews" className="hover:text-yellow-400 transition">Reviews</a>
-              <a href="#contact" className="hover:text-yellow-400 transition">Contact</a>
-            </div>
-          </div>
-        </nav>
+    nav a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
 
-        {/* Hero */}
-        <section
-          id="home"
-          className="h-screen flex items-center justify-center text-center px-6 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop')"
-          }}
-        >
-          <div className="bg-black/70 p-10 rounded-3x1 max-w-3x1 shadow-2x1">
-            <h2 className="text-5x1 md:text-7x1 font-extrabold mb-6 leading-tight">
-              Make Your Car Look <span className="text-yellow-400">Brand New</span>
-            </h2>
+    nav a:hover {
+      color: gold;
+    }
 
-            <p className="text-lg text-gray-300 mb-8">
-              Professional interior and exterior auto detailing with premium products and expert care.
-            </p>
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop') center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
 
-            <a
-              href="#contact"
-              className="bg-yellow-400 text-black px-8 py-4 rounded-2x1 font-bold hover:scale-105 transition inline-block"
-            > 
-              Book Now
-            </a>
-          </div>
-        </section>
+    .hero-content {
+      background: rgba(0,0,0,0.7);
+      padding: 50px;
+      border-radius: 20px;
+      max-width: 700px;
+    }
 
-        {/* Services */}
-        <section id="services" className="py-24 px-6 bg-zinc-950">
-          <div className="max-w-7x1 mx-auto text-center">
-            <h3 className+"text-4x1 font-bold mb-4">Our Services</h3>
-            <p className="text-gray-400 mb-14">
-              Professional detailing packages designed for every vehicle.
-            </p>
+    .hero h2 {
+      font-size: 60px;
+      margin-bottom: 20px;
+    }
 
-            <div className="grid md;grid-cols-3 gap-8">
-              {services.map((service, index) => (
-                <div
-                  key={index}
-                  className="bg-zinc-900 rounded-3x1 p-8 border border-zinc-800 hover:border-yellow-400 transition shadow-x1"
-                >
-                  <h4 className="text-2x1 font-bold mb-4 text-yellow-400">
-                    {service.title}
-                  </h4>
+    .hero span {
+      color: gold;
+    }
 
-                  <p className="text-5x1 font-extrabold md-6">{service.price}</p>
+    .hero p {
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
 
-                  <p className="text-gray-300 leading-relaxed">
-                    {service.description}
-                  </p>
+    .btn {
+      background: gold;
+      color: black;
+      padding: 15px 30px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+    }
 
-                  <button className="mt-8 w-full bg-yellow-400 text-black py-3 rounded-x1 font-bold hover:opacity-90 transition">
-                    Select Package
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+    section {
+      padding: 100px 40px;
+    }
 
-        {/*About*/}
-        <section id="about" className="py-24 px-6 bg-black">
-          <div className="max-w-6x1 mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <img
-              src="https://images.unsplash.com/photo-1607861716497-e65ab29fc7ac?q=80&w1400&auto=format&fit=crop"
-              alt="Detailing"
-              className="rounded-3x1 shadow-2x1 object-cover h-full"
-            />
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 40px;
+    }
 
-            <div>
-              <h3 className="text-4x1 font-bold mb-6">
-                Why Choose <span className="text-yellow-400">Us?</span>
-              </h3>
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
 
-              <p className="text-gray-300 mb-6 leading-relaxed text-lg">
-                At Precision Auto Detailing, we treat every vehicle like it's our own, We use premium detailing products, advanced cleaning techniques, and attention to detail to restore your vehicle's shine.
-              </p>
+    .card {
+      background: #1b1b1b;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      border: 1px solid #333;
+    }
 
-              <div className="space-y-4">
-                <div className="bg-zinc-900 p-4 rounded-2x1 border border-zinc-800">
-                  check; Professional-grade equipment
-                </div>
-                <div className="bg-zinc-900 p-4 rounded-2x1 border border-zinc-800">
-                  check; Affordable pricing
-                </div>
-                <div className="bg-zinc-900 p-4 rounded-2x1 border border-zinc-800">
-                  check; Mobile detailing available
-                </div>
-                <div className="bg-zinc-900 p-4 rounded-2x1 border border-zinc-800">
-                  check; Satisfaction guaranteed
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+    .card h3 {
+      color: gold;
+      margin-bottom: 15px;
+    }
 
-        {/*Reviews*/}
-        <section id="reviews" className="py-24 px-6 bg-zinc-950">
-          <div className="max-w-7x1 mx-auto text-center">
-            <h3 className="text-4x1 font-bold mb-14">Customer Reviews</h3>
+    .price {
+      font-size: 40px;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {reviews.map((review, index) => (
-                <div
-                  key={index}
-                  className="bg-black p-8 rounded-3x1 border border-zinc-800 shadow-lg"
-                >
-                  <p className="text-gray-300 italic mb-6">"{review.text}"</p>
-                  <h4 className="font-bold text-yellow-400">{review.name}</h4>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
 
-        {/* Contact */}
-        <section id="contact" classNamea="py-24 px-6 bg-black">
-          <div className="max-w-4x1 mx-auto text-center">
-            <h3 className="text-4x1 font-bold mb-4">Book Your Detail Today</h3>
+    .about img {
+      width: 100%;
+      border-radius: 20px;
+    }
 
-            <p className="text-gray-400 mb-10">
-              Contact us to schedule an appointment or get a free quote.
-            </p>
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
 
-            <form className="grid gap-6">
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="bg-zinc-900 border border-zinc-800 rounded-2x1 p-4 outline-none focus:border-yello-400"
-              />
+    .review {
+      background: #1b1b1b;
+      padding: 30px;
+      border-radius: 20px;
+    }
 
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="bg-zinc-900 border border-zinc-800 rounded-2x1 p-4 outline-none focus:border-yellow-400"
-              />
+    form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
 
-              <textarea
-                rows="5"
-                placeholder="Tell us about your vehicle or service needed"
-                className="bg-zinc-900 border border-zinc-800 rounded-2x1 p-4 outline-none focus:border-yellow-400">
-              ></textarea>
+    input, textarea {
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      background: #222;
+      color: white;
+    }
 
-              <button className="bg-yellow-400 text-black py-4 rounded-2x1 font-bold hover:scale-[1.02] transition">
-                Submit Request
-              </button>
-            </form>
-          </div>
-        </section>
+    button {
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background: gold;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-        {/* Footer */}
-        <footer className="border-t border-zinc-800 py-8 text-center text-gray-500 text-sm">
-          COPY 2026 Precision Auto Detailing | Professional Car Care Services
-        </footer>
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid #333;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>A&S Precision Auto Detailing</h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h2>Make Your Car Look <span>Brand New</span></h2>
+      <p>Professional interior and exterior detailing with premium products and expert care.</p>
+      <a href="#contact" class="btn">Book Now</a>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2 class="section-title">Our Services</h2>
+
+    <div class="services">
+      <div class="card">
+        <h3>Basic Detail</h3>
+        <div class="price">$79</div>
+        <p>Exterior wash, tire shine, interior vacuum, and window cleaning.</p>
       </div>
-    );
-  }
+
+      <div class="card">
+        <h3>Interior Detail</h3>
+        <div class="price">$149</div>
+        <p>Deep interior cleaning, shampoo, leather wipe down, and odor removal.</p>
+      </div>
+
+      <div class="card">
+        <h3>Premium Full Detail</h3>
+        <div class="price">$249</div>
+        <p>Full interior and exterior detail with wax protection and paint treatment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">Why Choose Us?</h2>
+
+    <div class="about">
+      <img src="https://images.unsplash.com/photo-1607861716497-e65ab29fc7ac?q=80&w=1400&auto=format&fit=crop" alt="Detailing" />
+
+      <div>
+        <p style="margin-bottom: 20px; line-height: 1.7;">
+          At A&S Precision Auto Detailing, we treat every vehicle like our own.
+          We use premium detailing products and professional techniques to restore your vehicle's shine.
+        </p>
+
+        <p>✔ Professional-grade equipment</p>
+        <p>✔ Affordable pricing</p>
+        <p>✔ Mobile detailing available</p>
+        <p>✔ Satisfaction guaranteed</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <h2 class="section-title">Customer Reviews</h2>
+
+    <div class="reviews">
+      <div class="review">
+        <p>“My car looked brand new again. Super professional service.”</p>
+        <br>
+        <strong>- Michael R.</strong>
+      </div>
+
+      <div class="review">
+        <p>“Best detailing service around. The interior cleaning was amazing.”</p>
+        <br>
+        <strong>- Sarah T.</strong>
+      </div>
+
+      <div class="review">
+        <p>“Affordable pricing and high-quality work. Highly recommend.”</p>
+        <br>
+        <strong>- David L.</strong>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Book Your Detail Today</h2>
+
+    <form>
+      <input type="text" placeholder="Your Name" />
+      <input type="email" placeholder="Your Email" />
+      <textarea rows="5" placeholder="Tell us about your vehicle or service needed"></textarea>
+      <button type="submit">Submit Request</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2026 A&S Precision Auto Detailing | Professional Car Care Services
+  </footer>
+
+</body>
+</html>
